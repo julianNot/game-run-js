@@ -1,10 +1,12 @@
+import { XORShiftGenerator } from './pseudo_random/xorShiftGenerator.js'
+
 export class CollisionAnimation {
   constructor(game, x, y) {
     this.game = game
     this.image = document.getElementById('collisionAnimation')
     this.spriteWidth = 100
     this.spriteHeight = 90
-    this.sizeModifier = Math.random() + 0.5
+    this.sizeModifier = new XORShiftGenerator().next() + 0.5
     this.width = this.spriteWidth * this.sizeModifier
     this.height = this.spriteHeight * this.sizeModifier
     this.x = x - this.width * 0.5
@@ -12,7 +14,7 @@ export class CollisionAnimation {
     this.frameX = 0
     this.maxFrame = 4
     this.markedForDeletion = false
-    this.fps = Math.random() * 10 + 5
+    this.fps = new XORShiftGenerator().next()  * 10 + 5
     this.frameInterval = 1000/this.fps
     this.frameTimer = 0
   }

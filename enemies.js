@@ -1,3 +1,5 @@
+import { MonteCarloPi } from './pseudo_random/monteCarlo.js'
+
 class Enemy {
   constructor() {
     this.frameX = 0
@@ -33,7 +35,7 @@ export class FlyingEnemy extends Enemy {
     this.game = game
     this.width = 60;
     this.height = 44
-    this.x = this.game.width + Math.random() * this.game.width * 0.5
+    this.x = this.game.width + new MonteCarloPi(10).estimatePi() * this.game.width * 0.5
     this.y = Math.random() * this.game.height * 0.5
     this.speedX = Math.random() + 1
     this.speedY = 0

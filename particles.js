@@ -1,3 +1,5 @@
+import { MiddleSquareGenerator } from './pseudo_random/middleSquareGenerator.js'
+
 class Particle {
   constructor(game) {
     this.game = game
@@ -14,11 +16,11 @@ class Particle {
 export class Dust extends Particle {
   constructor(game, x, y) {
     super(game)
-    this.size = Math.random() * 10 + 10
+    this.size = new MiddleSquareGenerator(new Date().getTime(), 4).next() * 10 + 10
     this.x = x
     this.y = y
-    this.speedX = Math.random()
-    this.speedY = Math.random()
+    this.speedX = new MiddleSquareGenerator(new Date().getTime(), 4).next()
+    this.speedY = new MiddleSquareGenerator(new Date().getTime(), 4).next()
     this.color = 'rgba(0,0,0,0.2)'
   };
   draw(context) {

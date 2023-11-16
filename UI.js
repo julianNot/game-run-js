@@ -2,7 +2,8 @@ export class UI {
   constructor(game) {
     this.game = game
     this.fontSize = 30
-    this.fontFamily = 'Helvetica'
+    this.fontFamily = 'Creepster'
+    this.livesImage = document.getElementById("lives")
   }
   draw(context) {
     context.save()
@@ -18,22 +19,26 @@ export class UI {
     //Time
     context.font = this.fontSize * 0.8 + 'px ' + this.fontFamily
     context.fillText('Time: ' + (this.game.time * 0.001).toFixed(1), 20, 80)
+    //Lives
+    for (let i = 0; i < this.game.lives; i++) {
+      context.drawImage(this.livesImage, 30 * i + 20, 95, 25, 25)
+    }
     //Game Over
     if (this.game.gameOver) {
       context.textAlign = 'center'
       context.font = this.fontSize * 2 + 'px ' + this.fontFamily
       
-      if (this.game.score > 5) {
-        context.fillText('Boo! YAH!', this.game.width * 0.5, this.game.height * 0.5,
+      if (this.game.score > this.game.winningScore) {
+        context.fillText('¡¡Winner!!', this.game.width * 0.5, this.game.height * 0.5,
           this.game.height * 0.5 - 20)
         context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily
-        context.fillText('¿A qué le temen las criaturas de la noche? ¡¡tú!!',
+        context.fillText('¿A qué le temen las criaturas de la noche? a ti!',
         this.game.width * 0.5, this.game.height * 0.5 + 20)
       } else {
-        context.fillText('Amor a primera mordida ?', this.game.width * 0.5, this.game.height * 0.5,
+        context.fillText('Game Over', this.game.width * 0.5, this.game.height * 0.5,
           this.game.height * 0.5 - 20)
         context.font = this.fontSize * 0.7 + 'px ' + this.fontFamily
-        context.fillText('No. Mejor suerte la próxima vez',
+        context.fillText('Mejor suerte la próxima vez',
         this.game.width * 0.5, this.game.height * 0.5 + 20)
       }
     }
