@@ -29,6 +29,13 @@ Cada método de generación pseudoaleatoria se ha integrado de manera específic
 - Cuadrados Medios: Animación de los movimientos del personaje principal
 - Congruencia Lineal: Ubicacíon de los enemigos
 
+## Instrucciones del Juego
+
+- **Movimiento:** Utiliza las flechas del teclado para mover al personaje (el perro) hacia la izquierda o derecha.
+- **Salto:** Presiona la flecha hacia arriba para hacer que el personaje salte.
+- **Acostarse:** Presiona la flecha hacia abajo para hacer que el personaje se acueste.
+- **Rodar (Poder):** Presiona la tecla Enter para activar el poder y hacer que el personaje ruede.
+
 ## Cómo Ejecutar el Juego
 
 1. Clona este repositorio.
